@@ -10,9 +10,7 @@ class Thermostat {
   }
 
   up() {
-    if (this.temp < this.maxTemp) {
-      this.temp++;
-    };
+    this.temp < this.maxTemp ? this.temp ++ : this.maxTemp;
   }
 
   down() {
@@ -21,15 +19,28 @@ class Thermostat {
 
   setPowerSavingMode(bool) {
     this.ecoMode = bool;
-    this.maxTemp = this.ecoMode ? 25 : 32;
-    if (this.temp > this.maxTemp) {
-      this.temp = this.maxTemp
-    };
+    this.#updateMaxTemp;
+    this.#updateTemp;
+    
   }
 
   checkMode() {
     return this.ecoMode;
   }
+
+
+  // private methods
+  
+  #updateMaxTemp() {
+    this.maxTemp = this.ecoMode ? 25 : 32;
+  }
+
+  #updateTemp() {
+    if (this.temp > this.maxTemp) {
+      this.temp = this.maxTemp;
+    };
+  }
+
 }
 
 module.exports = Thermostat;
