@@ -61,6 +61,14 @@ describe("Thermostat", () => {
       thermostat.down();
       expect(thermostat.getTemperature()).toBe(18);
     });
+
+    it("doesn't decrease temp below min temp", () => {
+      let thermostat = new Thermostat();
+      for (let i = 0 ; i < 15 ; i++) {
+        thermostat.down();
+      };
+      expect(thermostat.getTemperature()).toBe(10);
+    })
   });
   
   describe("setPowerSavingMode()", () => {
