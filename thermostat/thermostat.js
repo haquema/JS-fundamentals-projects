@@ -2,7 +2,7 @@ class Thermostat {
   constructor() {
     this.temp = 20;
     this.ecoMode = true
-    this.maxTemp = this.ecoMode ? 25 : 32
+    this.maxTemp = 25
   }
 
   getTemperature() {
@@ -11,16 +11,20 @@ class Thermostat {
 
   up() {
     if (this.temp < this.maxTemp) {
-      this.temp += 1;
+      this.temp++;
     };
   }
 
   down() {
-    this.temp -= 1;
+    this.temp--;
   }
 
   setPowerSavingMode(bool) {
     this.ecoMode = bool;
+    this.maxTemp = this.ecoMode ? 25 : 32;
+    if (this.temp > this.maxTemp) {
+      this.temp = this.maxTemp
+    };
   }
 
   checkMode() {

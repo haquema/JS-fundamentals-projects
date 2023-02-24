@@ -59,8 +59,9 @@ describe("Thermostat", () => {
       expect(thermostat.getTemperature()).toBe(25);
     })
 
-    xit("reduces temperature to 25 when set to true", () => {
+    it("reduces temperature to 25 when set to true", () => {
       let thermostat = new Thermostat();
+      thermostat.setPowerSavingMode(false);
       for (let i = 0 ; i < 10 ; i++) {
         thermostat.up();
       };
