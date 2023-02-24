@@ -6,9 +6,9 @@ describe("Thermostat", () => {
       let thermostat = new Thermostat();
       expect(thermostat.getTemperature()).toBe(20);
     });
-    xit("has power saving mode turned on by default", () => {
+    it("has power saving mode turned on by default", () => {
       let thermostat = new Thermostat();
-      expect(thermostat.powerSavingMode()).toBe(true);
+      expect(thermostat.checkMode()).toBe(true);
 
     })
   });
