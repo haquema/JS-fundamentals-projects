@@ -69,6 +69,12 @@ describe("Thermostat", () => {
       thermostat.setPowerSavingMode(true);
       expect(thermostat.checkMode()).toBe('Power saving mode is turned on and max temp is 25');
     })
+
+    it("turns power saving mode off", () => {
+      let thermostat = new Thermostat();
+      thermostat.setPowerSavingMode(false);
+      expect(thermostat.checkMode()).toBe('Power saving mode is turned off and max temp is 32');
+    })
     
     it("sets maximum temperature to 25 when set to true", () => {
       let thermostat = new Thermostat();
