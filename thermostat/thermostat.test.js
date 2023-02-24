@@ -12,16 +12,32 @@ describe("Thermostat", () => {
   describe("up()", () => {
     it("increases the temperature by 1", () => {
       let thermostat = new Thermostat();
-      thermostat.getTemperature();
-      expect(thermostat.getTemperature()).toBe(21)
-    })
+      thermostat.up();
+      expect(thermostat.getTemperature()).toBe(21);
+    });
 
     it("when called twice, it increases the temp by 2", () => {
       let thermostat = new Thermostat();
-      thermostat.getTemperature();
-      thermostat.getTemperature();
-      expect(thermostat.getTemperature()).toBe(22)
-    })
-  })
+      thermostat.up();
+      thermostat.up();
+      expect(thermostat.getTemperature()).toBe(22);
+    });
+  });
+
+  describe("down()", () => {
+    it("increases the temperature by 1", () => {
+      let thermostat = new Thermostat();
+      thermostat.down();
+      expect(thermostat.getTemperature()).toBe(19);
+    });
+
+    it("when called twice, it increases the temp by 2", () => {
+      let thermostat = new Thermostat();
+      thermostat.down();
+      thermostat.down();
+      expect(thermostat.getTemperature()).toBe(18);
+    });
+  });
+  
 
 });
