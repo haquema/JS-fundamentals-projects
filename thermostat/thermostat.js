@@ -18,6 +18,20 @@ class Thermostat {
     this.temp > this.minTemp ? this.temp-- : this.temp;
   }
 
+  setTemp(temp) {
+    this.temp = temp;
+  }
+
+  energyUsage() {
+    if (this.temp < 18) {
+      return "low usage";
+    } else if (this.temp <= 25) {
+      return "medium usage";
+    } else {
+      return "high usage";
+    };
+  }
+
   setPowerSavingMode(bool) {
     this.ecoMode = bool;
     this.#updateMaxTemp();

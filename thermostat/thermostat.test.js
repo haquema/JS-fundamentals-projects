@@ -119,4 +119,33 @@ describe("Thermostat", () => {
     })
   })
 
+  describe("energyUsage()", () => {
+    it("returns a message of low usage correctly", () => {
+      let thermostat = new Thermostat();
+      thermostat.setTemp(18);
+      for (let i = 0 ; i < 10 ; i++) {
+        thermostat.down();
+        expect(thermostat.energyUsage()).toBe("low usage")
+      };
+    })
+
+    it("returns a message of medium usage correctly", () => {
+      let thermostat = new Thermostat();
+      thermostat.setTemp(25);
+      for (let i = 0 ; i < 7 ; i++) {
+        expect(thermostat.energyUsage()).toBe("medium usage")
+        thermostat.down();
+      };
+    })
+
+    it("returns a message of high usage correctly", () => {
+      let thermostat = new Thermostat();
+      thermostat.setTemp(32);
+      for (let i = 0 ; i < 7 ; i++) {
+        expect(thermostat.energyUsage()).toBe("high usage")
+        thermostat.down();
+      };
+    })
+  })
+
 });
