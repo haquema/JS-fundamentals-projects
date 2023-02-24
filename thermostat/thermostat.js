@@ -32,6 +32,10 @@ class Thermostat {
     };
   }
 
+  reset() {
+    this.temp = 20
+  }
+
 
   // private methods
 

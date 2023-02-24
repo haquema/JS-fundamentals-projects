@@ -104,4 +104,19 @@ describe("Thermostat", () => {
     })
   })
 
+  describe("reset()", () => {
+    it("resets temperature to 20", () => {
+      let thermostat_1 = new Thermostat();
+      let thermostat_2 = new Thermostat();
+      for (let i = 0 ; i < 5 ; i++) {
+        thermostat_1.up();
+        thermostat_2.down();
+      };
+      thermostat_1.reset();
+      thermostat_2.reset();
+      expect(thermostat_1.getTemperature()).toBe(20);
+      expect(thermostat_2.getTemperature()).toBe(20);
+    })
+  })
+
 });
