@@ -19,26 +19,29 @@ class Thermostat {
 
   setPowerSavingMode(bool) {
     this.ecoMode = bool;
-    this.#updateMaxTemp;
-    this.#updateTemp;
-    
+    this.#updateMaxTemp();
+    this.#updateTemp();
   }
 
   checkMode() {
-    return this.ecoMode;
+    if (this.ecoMode) {
+      return `Power saving mode is turned on and max temp is ${this.maxTemp}`;
+    } else {
+      return `Power saving mode is turned off and max temp is ${this.maxTemp}`;
+    };
   }
 
 
   // private methods
-  
+
   #updateMaxTemp() {
-    this.maxTemp = this.ecoMode ? 25 : 32;
+    this.ecoMode ? this.maxTemp = 25 : this.maxTemp = 32;
   }
 
   #updateTemp() {
     if (this.temp > this.maxTemp) {
       this.temp = this.maxTemp;
-    };
+    } 
   }
 
 }
