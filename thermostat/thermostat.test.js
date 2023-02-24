@@ -50,7 +50,7 @@ describe("Thermostat", () => {
       expect(thermostat.checkMode()).toBe(true);
     })
     
-    xit("sets maximum temperature to 25 when set to true", () => {
+    it("sets maximum temperature to 25 when set to true", () => {
       let thermostat = new Thermostat();
       thermostat.setPowerSavingMode(true);
       for (let i = 0 ; i < 10 ; i++) {

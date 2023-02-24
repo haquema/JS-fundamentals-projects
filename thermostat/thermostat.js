@@ -9,7 +9,13 @@ class Thermostat {
   }
 
   up() {
+    if (this.ecoMode) {
+      if (this.temp < 25) {
+        this.temp += 1;
+      }
+    } else {
     this.temp += 1;
+    }
   }
 
   down() {
@@ -18,6 +24,7 @@ class Thermostat {
 
   setPowerSavingMode(bool) {
     this.ecoMode = bool;
+    
   }
 
   checkMode() {
