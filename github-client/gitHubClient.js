@@ -1,15 +1,15 @@
 const { get } = require("callback-fetch");
 
-class GitHubClient {
+class GithubClient {
 
   fetchRepositoryData(path, callback) {
-    let url = `https://api.github.com/repos/${path}`
+    let url = `https://api.github.com/repos/${path}`;
     get(url, (response) => {
       let responseObject = JSON.parse(response);
-      return callback(responseObject);
+      callback(responseObject);
     });
   };
 
 }
 
-module.exports = GitHubClient;
+module.exports = GithubClient;

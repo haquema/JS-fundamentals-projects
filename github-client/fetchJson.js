@@ -8,14 +8,18 @@
 const { get } = require("callback-fetch");
 
 const fetchJson = (url, callback) => {
-  get(url, callback);
+  get(url, (response) => {
+    responseObject = JSON.parse(response);
+    callback(responseObject);
+  });
 };
 
 module.exports = fetchJson;
 
 // In node
+
 // const fetchJson = require('./fetchJson');
 
 // fetchJson('https://jsonplaceholder.typicode.com/todos', (response) => {
-//   console.log(JSON.parse(response));
+//   console.log(response);
 // })
